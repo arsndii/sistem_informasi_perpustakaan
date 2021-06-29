@@ -3,7 +3,7 @@ object f_login: Tf_login
   Top = 165
   Width = 407
   Height = 258
-  Caption = 'f_login'
+  Caption = 'Login'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

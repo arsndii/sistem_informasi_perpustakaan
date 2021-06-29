@@ -2,7 +2,7 @@ object f_data_buku: Tf_data_buku
   Left = 865
   Top = 457
   Width = 825
-  Height = 480
+  Height = 440
   Caption = 'f_data_buku'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -15,7 +15,7 @@ object f_data_buku: Tf_data_buku
   TextHeight = 13
   object dg1: TDBGrid
     Left = 16
-    Top = 104
+    Top = 64
     Width = 777
     Height = 321
     DataSource = dm1.ds_data_buku
@@ -74,5 +74,27 @@ object f_data_buku: Tf_data_buku
         Width = 100
         Visible = True
       end>
+  end
+  object grp1: TGroupBox
+    Left = 592
+    Top = 8
+    Width = 201
+    Height = 49
+    Caption = 'Search'
+    TabOrder = 1
+    object edt_1: TEdit
+      Left = 12
+      Top = 17
+      Width = 177
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      Text = 'edt_1'
+    end
   end
 end

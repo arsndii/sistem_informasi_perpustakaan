@@ -2,7 +2,7 @@ object f_riwayat_peminjaman: Tf_riwayat_peminjaman
   Left = 448
   Top = 413
   Width = 867
-  Height = 472
+  Height = 456
   Caption = 'f_riwayat_peminjaman'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -15,7 +15,7 @@ object f_riwayat_peminjaman: Tf_riwayat_peminjaman
   TextHeight = 13
   object dg_riwayat_peminjaman: TDBGrid
     Left = 16
-    Top = 80
+    Top = 64
     Width = 817
     Height = 337
     DataSource = dm1.ds_riwayat_peminjaman
@@ -74,5 +74,27 @@ object f_riwayat_peminjaman: Tf_riwayat_peminjaman
         Width = 90
         Visible = True
       end>
+  end
+  object grp1: TGroupBox
+    Left = 632
+    Top = 8
+    Width = 201
+    Height = 49
+    Caption = 'Search'
+    TabOrder = 1
+    object edt_1: TEdit
+      Left = 12
+      Top = 17
+      Width = 177
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      Text = 'edt_1'
+    end
   end
 end

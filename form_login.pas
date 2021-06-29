@@ -28,7 +28,7 @@ var
 implementation
 
 uses
-  datamodule;
+  datamodule, form_peminjaman;
 
 {$R *.dfm}
 
@@ -40,22 +40,29 @@ begin
     login.First;
     while not login.Eof do
     begin
+//    // Login Admin
       if (edt_username.Text = login['username']) and (edt_password.Text = login['password']) and (login['level'] = 'admin') then
       begin
-        ShowMessage('Anda berhasil login (Admin)');
+        f_peminjaman.Show;
+        edt_username.Text := '';
+        edt_password.Text := '';
+        f_login.Hide;
         exit;
       end;
+      // Login Administrator
       login.Next;
       if (edt_username.Text = login['username']) and (edt_password.Text = login['password']) and (login['level'] = 'administrator') then
       begin
         ShowMessage('Anda berhasil login (Administrator)');
         exit;
       end;
+      // Login Gagal
       if login.Eof then
       begin
         Application.MessageBox('Login gagal, periksa kembali username dan password anda.','Error',MB_OK);
         edt_username.Text := '';
         edt_password.Text := '';
+        edt_username.SetFocus
       end;
     end;
   end;

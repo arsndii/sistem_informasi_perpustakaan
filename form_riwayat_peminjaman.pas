@@ -4,11 +4,13 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Grids, DBGrids;
+  Dialogs, Grids, DBGrids, StdCtrls;
 
 type
   Tf_riwayat_peminjaman = class(TForm)
     dg_riwayat_peminjaman: TDBGrid;
+    grp1: TGroupBox;
+    edt_1: TEdit;
   private
     { Private declarations }
   public
