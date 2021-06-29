@@ -1,7 +1,7 @@
 object dm1: Tdm1
   OldCreateOrder = False
-  Left = 705
-  Top = 187
+  Left = 651
+  Top = 185
   Height = 392
   Width = 387
   object koneksi: TADOConnection
@@ -99,5 +99,16 @@ object dm1: Tdm1
     TableName = 'user_list'
     Left = 24
     Top = 104
+  end
+  object Query: TADOQuery
+    Active = True
+    Connection = koneksi
+    CursorType = ctStatic
+    Parameters = <>
+    Prepared = True
+    SQL.Strings = (
+      'SELECT * FROM anggota')
+    Left = 32
+    Top = 184
   end
 end

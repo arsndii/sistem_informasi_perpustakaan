@@ -1,8 +1,8 @@
 object f_peminjaman: Tf_peminjaman
-  Left = 425
-  Top = 180
+  Left = 1060
+  Top = 146
   Width = 858
-  Height = 478
+  Height = 486
   Caption = 'Dashboard'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,7 +17,7 @@ object f_peminjaman: Tf_peminjaman
   TextHeight = 13
   object l_1: TLabel
     Left = 16
-    Top = 16
+    Top = 8
     Width = 291
     Height = 25
     Caption = 'Sistem Informasi Perpustakaan'
@@ -28,9 +28,9 @@ object f_peminjaman: Tf_peminjaman
     Font.Style = []
     ParentFont = False
   end
-  object dg1: TDBGrid
+  object dg_peminjaman: TDBGrid
     Left = 16
-    Top = 64
+    Top = 72
     Width = 809
     Height = 337
     DataSource = dm1.ds_peminjaman
@@ -92,7 +92,7 @@ object f_peminjaman: Tf_peminjaman
   end
   object grp1: TGroupBox
     Left = 624
-    Top = 8
+    Top = 16
     Width = 201
     Height = 49
     Caption = 'Search'
@@ -111,6 +111,23 @@ object f_peminjaman: Tf_peminjaman
       TabOrder = 0
       Text = 'edt_1'
     end
+  end
+  object btn_pinjam: TButton
+    Left = 16
+    Top = 40
+    Width = 105
+    Height = 25
+    Caption = 'Input Peminjaman'
+    TabOrder = 2
+    OnClick = btn_pinjamClick
+  end
+  object btn_laporan: TButton
+    Left = 128
+    Top = 40
+    Width = 105
+    Height = 25
+    Caption = 'Cetak Laporan'
+    TabOrder = 3
   end
   object mm1: TMainMenu
     Left = 328

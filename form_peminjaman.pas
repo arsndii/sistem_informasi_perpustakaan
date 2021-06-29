@@ -8,7 +8,7 @@ uses
 
 type
   Tf_peminjaman = class(TForm)
-    dg1: TDBGrid;
+    dg_peminjaman: TDBGrid;
     grp1: TGroupBox;
     edt_1: TEdit;
     l_1: TLabel;
@@ -18,11 +18,14 @@ type
     DataBuku1: TMenuItem;
     RiwayatPeminjaman1: TMenuItem;
     Logout1: TMenuItem;
+    btn_pinjam: TButton;
+    btn_laporan: TButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Logout1Click(Sender: TObject);
     procedure Anggota1Click(Sender: TObject);
     procedure DataBuku1Click(Sender: TObject);
     procedure RiwayatPeminjaman1Click(Sender: TObject);
+    procedure btn_pinjamClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,7 +39,7 @@ implementation
 
 uses
   datamodule, form_login, form_anggota, form_data_buku,
-  form_riwayat_peminjaman;
+  form_riwayat_peminjaman, form_input_peminjaman;
 
 {$R *.dfm}
 
@@ -65,6 +68,11 @@ end;
 procedure Tf_peminjaman.RiwayatPeminjaman1Click(Sender: TObject);
 begin
   f_riwayat_peminjaman.showmodal;
+end;
+
+procedure Tf_peminjaman.btn_pinjamClick(Sender: TObject);
+begin
+  f_input_peminjaman.showmodal;
 end;
 
 end.

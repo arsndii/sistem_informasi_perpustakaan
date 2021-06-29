@@ -19,6 +19,7 @@ type
     table_riwayat_peminjaman: TADODataSet;
     ds_riwayat_peminjaman: TDataSource;
     login: TADOTable;
+    Query: TADOQuery;
   private
     { Private declarations }
   public
