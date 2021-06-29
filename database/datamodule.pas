@@ -18,6 +18,7 @@ type
     ds_user: TDataSource;
     table_riwayat_peminjaman: TADODataSet;
     ds_riwayat_peminjaman: TDataSource;
+    login: TADOTable;
   private
     { Private declarations }
   public

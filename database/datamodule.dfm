@@ -1,7 +1,7 @@
 object dm1: Tdm1
   OldCreateOrder = False
-  Left = 1494
-  Top = 213
+  Left = 705
+  Top = 187
   Height = 392
   Width = 387
   object koneksi: TADOConnection
@@ -91,5 +91,13 @@ object dm1: Tdm1
     DataSet = table_riwayat_peminjaman
     Left = 272
     Top = 280
+  end
+  object login: TADOTable
+    Active = True
+    Connection = koneksi
+    CursorType = ctStatic
+    TableName = 'user_list'
+    Left = 24
+    Top = 104
   end
 end

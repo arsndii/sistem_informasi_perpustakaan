@@ -4,10 +4,18 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs;
+  Dialogs, StdCtrls;
 
 type
   Tf_login = class(TForm)
+    l_1: TLabel;
+    edt_username: TEdit;
+    l_2: TLabel;
+    edt_password: TEdit;
+    btn_login: TButton;
+    btn_close: TButton;
+    procedure btn_loginClick(Sender: TObject);
+    procedure btn_closeClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -19,6 +27,43 @@ var
 
 implementation
 
+uses
+  datamodule;
+
 {$R *.dfm}
+
+procedure Tf_login.btn_loginClick(Sender: TObject);
+begin
+  with dm1 do
+  begin
+    login.Refresh;
+    login.First;
+    while not login.Eof do
+    begin
+      if (edt_username.Text = login['username']) and (edt_password.Text = login['password']) and (login['level'] = 'admin') then
+      begin
+        ShowMessage('Anda berhasil login (Admin)');
+        exit;
+      end;
+      login.Next;
+      if (edt_username.Text = login['username']) and (edt_password.Text = login['password']) and (login['level'] = 'administrator') then
+      begin
+        ShowMessage('Anda berhasil login (Administrator)');
+        exit;
+      end;
+      if login.Eof then
+      begin
+        Application.MessageBox('Login gagal, periksa kembali username dan password anda.','Error',MB_OK);
+        edt_username.Text := '';
+        edt_password.Text := '';
+      end;
+    end;
+  end;
+end;
+
+procedure Tf_login.btn_closeClick(Sender: TObject);
+begin
+  application.Terminate;
+end;
 
 end.
