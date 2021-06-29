@@ -1,24 +1,27 @@
 object f_user: Tf_user
-  Left = 544
-  Top = 259
+  Left = 260
+  Top = 200
   Width = 490
-  Height = 393
-  Caption = 'f_user'
+  Height = 359
+  Caption = 'User Management'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Menu = mm1
   OldCreateOrder = False
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
-  object dg1: TDBGrid
+  object dg_user: TDBGrid
     Left = 16
-    Top = 80
+    Top = 48
     Width = 441
     Height = 257
     DataSource = dm1.ds_user
+    PopupMenu = PopupMenu1
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -49,6 +52,38 @@ object f_user: Tf_user
         Title.Caption = 'Level'
         Width = 100
         Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'password'
+        Visible = False
       end>
+  end
+  object btn_1: TButton
+    Left = 16
+    Top = 16
+    Width = 81
+    Height = 25
+    Caption = 'Tambah User'
+    TabOrder = 1
+    OnClick = btn_1Click
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 120
+    object Edit1: TMenuItem
+      Caption = 'Edit'
+      OnClick = Edit1Click
+    end
+    object Hapus1: TMenuItem
+      Caption = 'Hapus'
+      OnClick = Hapus1Click
+    end
+  end
+  object mm1: TMainMenu
+    Left = 184
+    object Logout1: TMenuItem
+      Caption = 'Logout'
+      OnClick = Logout1Click
+    end
   end
 end

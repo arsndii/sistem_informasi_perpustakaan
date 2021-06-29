@@ -28,7 +28,7 @@ var
 implementation
 
 uses
-  datamodule, form_peminjaman;
+  datamodule, form_peminjaman, form_user;
 
 {$R *.dfm}
 
@@ -53,7 +53,10 @@ begin
       login.Next;
       if (edt_username.Text = login['username']) and (edt_password.Text = login['password']) and (login['level'] = 'administrator') then
       begin
-        ShowMessage('Anda berhasil login (Administrator)');
+        f_user.Show;
+        edt_username.Text := '';
+        edt_password.Text := '';
+        f_login.Hide;
         exit;
       end;
       // Login Gagal
