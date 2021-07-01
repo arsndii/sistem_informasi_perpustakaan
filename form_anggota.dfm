@@ -1,6 +1,6 @@
 object f_anggota: Tf_anggota
-  Left = 477
-  Top = 362
+  Left = 507
+  Top = 373
   Width = 962
   Height = 417
   Caption = 'Data Anggota'

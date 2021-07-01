@@ -1,6 +1,6 @@
 object f_input_buku: Tf_input_buku
-  Left = 515
-  Top = 285
+  Left = 742
+  Top = 402
   Width = 530
   Height = 389
   Caption = 'Form'

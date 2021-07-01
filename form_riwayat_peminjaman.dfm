@@ -1,6 +1,6 @@
 object f_riwayat_peminjaman: Tf_riwayat_peminjaman
-  Left = 827
-  Top = 500
+  Left = 516
+  Top = 375
   Width = 937
   Height = 465
   Caption = 'Form Riwayat Peminjaman'

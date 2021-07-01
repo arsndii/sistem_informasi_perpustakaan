@@ -1,6 +1,6 @@
 object f_input_peminjaman: Tf_input_peminjaman
-  Left = 762
-  Top = 447
+  Left = 781
+  Top = 378
   Width = 456
   Height = 440
   Caption = 'Form Input Peminjaman'

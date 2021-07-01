@@ -1,6 +1,6 @@
 object f_user: Tf_user
-  Left = 260
-  Top = 200
+  Left = 760
+  Top = 407
   Width = 490
   Height = 380
   Caption = 'User Management'

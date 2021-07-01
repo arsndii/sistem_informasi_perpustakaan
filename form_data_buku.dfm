@@ -1,6 +1,6 @@
 object f_data_buku: Tf_data_buku
-  Left = 717
-  Top = 463
+  Left = 575
+  Top = 377
   Width = 842
   Height = 448
   Caption = 'Data Buku'

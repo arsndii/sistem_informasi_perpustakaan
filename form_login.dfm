@@ -1,6 +1,6 @@
 object f_login: Tf_login
-  Left = 1506
-  Top = 165
+  Left = 804
+  Top = 474
   Width = 407
   Height = 258
   Caption = 'Login'

@@ -1,6 +1,6 @@
 object f_input_user: Tf_input_user
-  Left = 313
-  Top = 158
+  Left = 803
+  Top = 444
   Width = 410
   Height = 323
   Caption = 'Form'

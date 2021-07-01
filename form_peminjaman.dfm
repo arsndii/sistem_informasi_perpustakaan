@@ -1,6 +1,6 @@
 object f_peminjaman: Tf_peminjaman
-  Left = 829
-  Top = 214
+  Left = 547
+  Top = 373
   Width = 882
   Height = 486
   Caption = 'Dashboard'

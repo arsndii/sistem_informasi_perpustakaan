@@ -1,6 +1,6 @@
 object f_input_anggota: Tf_input_anggota
-  Left = 1460
-  Top = 580
+  Left = 776
+  Top = 429
   Width = 462
   Height = 336
   Caption = 'Form'
