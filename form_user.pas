@@ -51,6 +51,7 @@ begin
 with f_input_user do
   begin
     lbl_judul.Caption := 'Form Edit User';
+    f_input_user.Caption := 'Form Edit User';
 
     edt_username.Text := dg_user.Fields[0].Value;
     edt_nama.Text := dg_user.Fields[1].Value;

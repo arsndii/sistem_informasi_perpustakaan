@@ -53,6 +53,7 @@ begin
 with f_input_buku do
   begin
     lbl_judul.Caption := 'Form Edit Buku';
+    f_input_buku.Caption := 'Form Edit Buku';
 
     edt_id_buku.Text := dg_buku.Fields[0].Value;
     edt_judul.Text := dg_buku.Fields[1].Value;

@@ -23,6 +23,7 @@ type
     edt_tahun_tebit: TEdit;
     procedure btn_simpanClick(Sender: TObject);
     procedure btn_batalClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -70,7 +71,14 @@ begin
   edt_tahun_tebit.Text := '';
 
   lbl_judul.Caption := 'Form Input Buku';
+  f_input_buku.Caption := 'Form Input Buku';
   edt_id_buku.SetFocus;
+end;
+
+procedure Tf_input_buku.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  btn_batalClick(Sender);
 end;
 
 end.

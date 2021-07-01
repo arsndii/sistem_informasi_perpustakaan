@@ -3,7 +3,7 @@ object f_input_user: Tf_input_user
   Top = 444
   Width = 410
   Height = 323
-  Caption = 'Form'
+  Caption = 'Form Input User'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

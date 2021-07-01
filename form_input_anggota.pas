@@ -21,6 +21,7 @@ type
     btn_batal: TButton;
     procedure btn_simpanClick(Sender: TObject);
     procedure btn_batalClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -71,7 +72,14 @@ begin
   edt_no_telp.Text := '';
 
   lbl_judul.Caption := 'Form Input Anggota';
+  f_input_anggota.Caption := 'Form Input Anggota';
   edt_id_anggota.SetFocus;
+end;
+
+procedure Tf_input_anggota.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  btn_batalClick(Sender);
 end;
 
 end.

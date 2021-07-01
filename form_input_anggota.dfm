@@ -3,7 +3,7 @@ object f_input_anggota: Tf_input_anggota
   Top = 429
   Width = 462
   Height = 336
-  Caption = 'Form'
+  Caption = 'Form Input Anggota'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,6 +11,7 @@ object f_input_anggota: Tf_input_anggota
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object lbl_judul: TLabel

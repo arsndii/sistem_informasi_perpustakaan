@@ -46,6 +46,7 @@ begin
   cb_level.Text := '';
 
   lbl_judul.Caption := 'Form Input User';
+  f_input_user.Caption := 'Form Input User';
   edt_username.SetFocus;
 end;
 

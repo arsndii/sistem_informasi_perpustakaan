@@ -3,7 +3,7 @@ object f_input_buku: Tf_input_buku
   Top = 402
   Width = 530
   Height = 389
-  Caption = 'Form'
+  Caption = 'Form Input Buku'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,6 +11,7 @@ object f_input_buku: Tf_input_buku
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object lbl_judul: TLabel

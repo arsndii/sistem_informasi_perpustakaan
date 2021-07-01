@@ -48,6 +48,7 @@ begin
 with f_input_anggota do
   begin
     lbl_judul.Caption := 'Form Edit Anggota';
+    f_input_anggota.Caption := 'Form Edit Anggota';
 
     edt_id_anggota.Text := dg_anggota.Fields[0].Value;
     edt_nama.Text := dg_anggota.Fields[1].Value;
