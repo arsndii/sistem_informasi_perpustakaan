@@ -1,7 +1,7 @@
 object dm1: Tdm1
   OldCreateOrder = False
-  Left = 651
-  Top = 185
+  Left = 183
+  Top = 134
   Height = 392
   Width = 387
   object koneksi: TADOConnection

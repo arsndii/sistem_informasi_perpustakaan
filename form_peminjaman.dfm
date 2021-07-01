@@ -1,7 +1,7 @@
 object f_peminjaman: Tf_peminjaman
-  Left = 1060
-  Top = 146
-  Width = 858
+  Left = 829
+  Top = 214
+  Width = 882
   Height = 486
   Caption = 'Dashboard'
   Color = clBtnFace
@@ -31,9 +31,10 @@ object f_peminjaman: Tf_peminjaman
   object dg_peminjaman: TDBGrid
     Left = 16
     Top = 72
-    Width = 809
+    Width = 833
     Height = 337
     DataSource = dm1.ds_peminjaman
+    PopupMenu = PopupMenu1
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -42,6 +43,7 @@ object f_peminjaman: Tf_peminjaman
     TitleFont.Style = []
     Columns = <
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'no_pinjam'
         Title.Alignment = taCenter
@@ -66,6 +68,7 @@ object f_peminjaman: Tf_peminjaman
         Visible = True
       end
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'tanggal_pinjam'
         Title.Alignment = taCenter
@@ -74,6 +77,7 @@ object f_peminjaman: Tf_peminjaman
         Visible = True
       end
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'batas_waktu'
         Title.Alignment = taCenter
@@ -82,22 +86,23 @@ object f_peminjaman: Tf_peminjaman
         Visible = True
       end
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'tanggal_kembali'
         Title.Alignment = taCenter
         Title.Caption = 'Tanggal Kembali'
-        Width = 90
+        Width = 100
         Visible = True
       end>
   end
   object grp1: TGroupBox
-    Left = 624
+    Left = 648
     Top = 16
     Width = 201
     Height = 49
     Caption = 'Search'
     TabOrder = 1
-    object edt_1: TEdit
+    object edt_cari: TEdit
       Left = 12
       Top = 17
       Width = 177
@@ -109,7 +114,7 @@ object f_peminjaman: Tf_peminjaman
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      Text = 'edt_1'
+      OnChange = edt_cariChange
     end
   end
   object btn_pinjam: TButton
@@ -128,6 +133,7 @@ object f_peminjaman: Tf_peminjaman
     Height = 25
     Caption = 'Cetak Laporan'
     TabOrder = 3
+    OnClick = btn_laporanClick
   end
   object mm1: TMainMenu
     Left = 328
@@ -150,6 +156,25 @@ object f_peminjaman: Tf_peminjaman
     object Logout1: TMenuItem
       Caption = 'Logout'
       OnClick = Logout1Click
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 392
+    Top = 16
+    object PerpanjangBatasWaktu1: TMenuItem
+      Caption = 'Perpanjang Batas Waktu'
+      OnClick = PerpanjangBatasWaktu1Click
+    end
+    object Pengembalian1: TMenuItem
+      Caption = 'Pengembalian'
+      OnClick = Pengembalian1Click
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object Hapus1: TMenuItem
+      Caption = 'Hapus'
+      OnClick = Hapus1Click
     end
   end
 end

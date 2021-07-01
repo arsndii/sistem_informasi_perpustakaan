@@ -1,9 +1,9 @@
 object f_data_buku: Tf_data_buku
-  Left = 865
-  Top = 457
-  Width = 825
-  Height = 440
-  Caption = 'f_data_buku'
+  Left = 717
+  Top = 463
+  Width = 842
+  Height = 448
+  Caption = 'Data Buku'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,12 +13,26 @@ object f_data_buku: Tf_data_buku
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object dg1: TDBGrid
+  object lbl__1: TLabel
     Left = 16
-    Top = 64
-    Width = 777
+    Top = 8
+    Width = 97
+    Height = 25
+    Caption = 'Data Buku'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object dg_buku: TDBGrid
+    Left = 16
+    Top = 72
+    Width = 793
     Height = 321
     DataSource = dm1.ds_data_buku
+    PopupMenu = PopupMenu1
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -27,11 +41,12 @@ object f_data_buku: Tf_data_buku
     TitleFont.Style = []
     Columns = <
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'id_buku'
         Title.Alignment = taCenter
         Title.Caption = 'ID Buku'
-        Width = 65
+        Width = 100
         Visible = True
       end
       item
@@ -39,7 +54,7 @@ object f_data_buku: Tf_data_buku
         FieldName = 'judul'
         Title.Alignment = taCenter
         Title.Caption = 'Judul'
-        Width = 250
+        Width = 300
         Visible = True
       end
       item
@@ -47,7 +62,7 @@ object f_data_buku: Tf_data_buku
         FieldName = 'penulis'
         Title.Alignment = taCenter
         Title.Caption = 'Penulis'
-        Width = 120
+        Width = 150
         Visible = True
       end
       item
@@ -59,30 +74,23 @@ object f_data_buku: Tf_data_buku
         Visible = True
       end
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'tahun_terbit'
         Title.Alignment = taCenter
         Title.Caption = 'Tahun Terbit'
         Width = 80
         Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'status_buku'
-        Title.Alignment = taCenter
-        Title.Caption = 'Status'
-        Width = 100
-        Visible = True
       end>
   end
   object grp1: TGroupBox
     Left = 592
-    Top = 8
+    Top = 16
     Width = 201
     Height = 49
     Caption = 'Search'
     TabOrder = 1
-    object edt_1: TEdit
+    object edt_cari: TEdit
       Left = 12
       Top = 17
       Width = 177
@@ -94,7 +102,37 @@ object f_data_buku: Tf_data_buku
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      Text = 'edt_1'
+      OnChange = edt_cariChange
+    end
+  end
+  object btn_1: TButton
+    Left = 16
+    Top = 40
+    Width = 97
+    Height = 25
+    Caption = 'Input Buku'
+    TabOrder = 2
+    OnClick = btn_1Click
+  end
+  object btn_2: TButton
+    Left = 120
+    Top = 40
+    Width = 97
+    Height = 25
+    Caption = 'Cetak Laporan'
+    TabOrder = 3
+    OnClick = btn_2Click
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 320
+    Top = 16
+    object Edit1: TMenuItem
+      Caption = 'Edit'
+      OnClick = Edit1Click
+    end
+    object Hapus1: TMenuItem
+      Caption = 'Hapus'
+      OnClick = Hapus1Click
     end
   end
 end

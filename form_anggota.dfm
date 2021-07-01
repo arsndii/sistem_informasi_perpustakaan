@@ -1,9 +1,9 @@
 object f_anggota: Tf_anggota
   Left = 477
   Top = 362
-  Width = 1018
+  Width = 962
   Height = 417
-  Caption = 'f_anggota'
+  Caption = 'Data Anggota'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -29,7 +29,7 @@ object f_anggota: Tf_anggota
   object dg_anggota: TDBGrid
     Left = 16
     Top = 72
-    Width = 969
+    Width = 913
     Height = 289
     DataSource = dm1.ds_anggota
     PopupMenu = PopupMenu1
@@ -41,6 +41,7 @@ object f_anggota: Tf_anggota
     TitleFont.Style = []
     Columns = <
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'id_anggota'
         Title.Alignment = taCenter
@@ -65,6 +66,7 @@ object f_anggota: Tf_anggota
         Visible = True
       end
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'no_telp'
         Title.Alignment = taCenter
@@ -73,22 +75,23 @@ object f_anggota: Tf_anggota
         Visible = True
       end
       item
+        Alignment = taCenter
         Expanded = False
         FieldName = 'tanggal_daftar'
         Title.Alignment = taCenter
         Title.Caption = 'Tanggal Daftar'
-        Width = 150
+        Width = 100
         Visible = True
       end>
   end
   object grp1: TGroupBox
-    Left = 784
+    Left = 728
     Top = 16
     Width = 201
     Height = 49
     Caption = 'Search'
     TabOrder = 1
-    object edt_1: TEdit
+    object edt_cari: TEdit
       Left = 12
       Top = 17
       Width = 177
@@ -100,6 +103,7 @@ object f_anggota: Tf_anggota
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnChange = edt_cariChange
     end
   end
   object btn_1: TButton
@@ -110,6 +114,15 @@ object f_anggota: Tf_anggota
     Caption = 'Input Anggota'
     TabOrder = 2
     OnClick = btn_1Click
+  end
+  object btn_2: TButton
+    Left = 120
+    Top = 40
+    Width = 97
+    Height = 25
+    Caption = 'Cetak Laporan'
+    TabOrder = 3
+    OnClick = btn_2Click
   end
   object PopupMenu1: TPopupMenu
     Left = 368

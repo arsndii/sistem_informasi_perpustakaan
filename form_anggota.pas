@@ -10,15 +10,18 @@ type
   Tf_anggota = class(TForm)
     dg_anggota: TDBGrid;
     grp1: TGroupBox;
-    edt_1: TEdit;
+    edt_cari: TEdit;
     lbl__1: TLabel;
     PopupMenu1: TPopupMenu;
     Edit1: TMenuItem;
     Hapus1: TMenuItem;
     btn_1: TButton;
+    btn_2: TButton;
     procedure btn_1Click(Sender: TObject);
     procedure Edit1Click(Sender: TObject);
     procedure Hapus1Click(Sender: TObject);
+    procedure btn_2Click(Sender: TObject);
+    procedure edt_cariChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,7 +34,7 @@ var
 implementation
 
 uses
-  datamodule, form_input_anggota;
+  datamodule, form_input_anggota, form_laporan_anggota;
 
 {$R *.dfm}
 
@@ -51,7 +54,6 @@ with f_input_anggota do
     edt_alamat.Text := dg_anggota.Fields[2].Value;
     edt_no_telp.Text := dg_anggota.Fields[3].Value;
 
-
     edt_id_anggota.ReadOnly := True;
     ShowModal;
   end;
@@ -67,6 +69,21 @@ begin
         First;
       end;
     end;
+end;
+
+procedure Tf_anggota.btn_2Click(Sender: TObject);
+begin
+  f_laporan_anggota.QuickRep1.preview;
+end;
+
+procedure Tf_anggota.edt_cariChange(Sender: TObject);
+begin
+  with dm1.table_anggota do
+  begin
+    Active := False;
+    CommandText := 'SELECT * FROM anggota WHERE id_anggota LIKE "%'+edt_cari.Text+'%" OR nama LIKE "%'+edt_cari.Text+'%"';
+    Active := True;
+  end;
 end;
 
 end.

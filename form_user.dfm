@@ -2,7 +2,7 @@ object f_user: Tf_user
   Left = 260
   Top = 200
   Width = 490
-  Height = 359
+  Height = 380
   Caption = 'User Management'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET

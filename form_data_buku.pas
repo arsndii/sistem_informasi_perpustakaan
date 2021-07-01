@@ -4,13 +4,24 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Grids, DBGrids, StdCtrls;
+  Dialogs, Grids, DBGrids, StdCtrls, Menus;
 
 type
   Tf_data_buku = class(TForm)
-    dg1: TDBGrid;
+    dg_buku: TDBGrid;
     grp1: TGroupBox;
-    edt_1: TEdit;
+    edt_cari: TEdit;
+    lbl__1: TLabel;
+    btn_1: TButton;
+    btn_2: TButton;
+    PopupMenu1: TPopupMenu;
+    Edit1: TMenuItem;
+    Hapus1: TMenuItem;
+    procedure btn_1Click(Sender: TObject);
+    procedure btn_2Click(Sender: TObject);
+    procedure Edit1Click(Sender: TObject);
+    procedure Hapus1Click(Sender: TObject);
+    procedure edt_cariChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -23,8 +34,57 @@ var
 implementation
 
 uses
-  datamodule;
+  datamodule, form_input_buku, forn_laporan_buku;
 
 {$R *.dfm}
+
+procedure Tf_data_buku.btn_1Click(Sender: TObject);
+begin
+  f_input_buku.showmodal;
+end;
+
+procedure Tf_data_buku.btn_2Click(Sender: TObject);
+begin
+  f_laporan_buku.QuickRep1.preview;
+end;
+
+procedure Tf_data_buku.Edit1Click(Sender: TObject);
+begin
+with f_input_buku do
+  begin
+    lbl_judul.Caption := 'Form Edit Buku';
+
+    edt_id_buku.Text := dg_buku.Fields[0].Value;
+    edt_judul.Text := dg_buku.Fields[1].Value;
+    edt_penulis.Text := dg_buku.Fields[2].Value;
+    edt_penerbit.Text := dg_buku.Fields[3].Value;
+    edt_tahun_tebit.Text := dg_buku.Fields[4].Value;
+
+    edt_id_buku.ReadOnly := True;
+    ShowModal;
+  end;
+end;
+
+procedure Tf_data_buku.Hapus1Click(Sender: TObject);
+begin
+  if MessageDlg('Lanjutkan hapus data buku ?', mtConfirmation, [mbYes,mbCancel],0) = mryes then
+    begin
+      with dm1.table_data_buku do
+      begin
+        Delete;
+        First;
+      end;
+    end;
+end;
+
+procedure Tf_data_buku.edt_cariChange(Sender: TObject);
+begin
+  with dm1.table_data_buku do
+  begin
+    Active := False;
+    CommandText := 'SELECT * FROM data_buku WHERE id_buku LIKE "%'+edt_cari.Text+'%" OR judul LIKE "%'+edt_cari.Text+'%"';
+    Active := True;
+  end;
+end;
 
 end.

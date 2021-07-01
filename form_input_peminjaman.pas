@@ -11,15 +11,23 @@ type
     lbl_judul: TLabel;
     lbl_2: TLabel;
     edt_no_pinjam: TEdit;
-    lbl_3: TLabel;
-    lbl_4: TLabel;
     btn_simpan: TButton;
     btn_batal: TButton;
+    grp1: TGroupBox;
+    lbl_3: TLabel;
+    lbl_1: TLabel;
     cb_id_anggota: TComboBox;
+    edt_nama: TEdit;
+    grp2: TGroupBox;
+    lbl_4: TLabel;
+    lbl_5: TLabel;
     cb_id_buku: TComboBox;
+    edt_judul: TEdit;
     procedure FormActivate(Sender: TObject);
     procedure btn_simpanClick(Sender: TObject);
     procedure btn_batalClick(Sender: TObject);
+    procedure cb_id_anggotaChange(Sender: TObject);
+    procedure cb_id_bukuChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,10 +58,7 @@ begin
         if Prepared = true then
         begin
           Open;
-          if (fieldbyname('kodeTerbesar').AsString <> '') then
-            kodeTerbesar := fieldbyname('kodeTerbesar').AsInteger
-          else
-            kodeTerbesar := 0;
+          kodeTerbesar := fieldbyname('kodeTerbesar').AsInteger
         end;
       end;
       kodeTerbesar := kodeTerbesar + 1; // Menambahkan 1 pada kodeTertinggi
@@ -105,31 +110,24 @@ procedure Tf_input_peminjaman.btn_simpanClick(Sender: TObject);
 begin
   with dm1.table_peminjaman do
   begin
-    if lbl_judul.Caption = 'Form Input Peminjaman' then
-      begin
-        Append;
-        FieldValues['no_pinjam'] := edt_no_pinjam.Text;
+    Append;
+    FieldValues['no_pinjam'] := edt_no_pinjam.Text;
 
-        // Tanggal
-        DateSeparator := '-';
-        ShortDateFormat := 'dd/mm/yyyy';
-        FieldValues['tanggal_pinjam'] := DateToStr(Date);
-      end
-    else Edit;
+    // Tanggal
+    DateSeparator := '-';
+    ShortDateFormat := 'dd/mm/yyyy';
+    FieldValues['tanggal_pinjam'] := DateToStr(Date);
+    FieldValues['batas_waktu'] := DateToStr(Date+7); // Batas peminjaman 7 hari
 
     FieldValues['peminjaman.id_anggota'] := cb_id_anggota.Text;
     FieldValues['peminjaman.id_buku'] := cb_id_buku.Text;
     FieldValues['status'] := 'Diproses';
     Post;
     First;
-  end;
 
- // Refresh Table Peminjaman  
-  with dm1.table_peminjaman do
-  begin
+    // Refresh Table Peminjaman
     Active := False;
     Active := True;
-    f_peminjaman.dg_peminjaman.Refresh;
   end;
 
   btn_batalClick(Sender);
@@ -140,8 +138,40 @@ procedure Tf_input_peminjaman.btn_batalClick(Sender: TObject);
 begin
   cb_id_anggota.Text := '';
   cb_id_buku.Text := '';
+  edt_nama.Text := '';
+  edt_judul.Text := '';
+end;
 
-  lbl_judul.Caption := 'Form Input Peminjaman';
+procedure Tf_input_peminjaman.cb_id_anggotaChange(Sender: TObject);
+begin
+  with dm1.Query do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM anggota WHERE id_anggota = "'+ cb_id_anggota.Text +'" '); // Mencari nama anggota berdasarkan id_anggota
+    Prepared;
+    if Prepared = true then
+    begin
+      Open;
+      edt_nama.Text := fieldbyname('nama').AsString
+    end;
+  end;
+end;
+
+procedure Tf_input_peminjaman.cb_id_bukuChange(Sender: TObject);
+begin
+  with dm1.Query do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT judul FROM data_buku WHERE id_buku = "'+cb_id_buku.Text+'" '); // Mencari judul buku berdasarkan id_buku
+    Prepared;
+    if Prepared = true then
+    begin
+      Open;
+      edt_judul.Text := fieldbyname('judul').AsString
+    end;
+  end;
 end;
 
 end.
