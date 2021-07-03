@@ -82,9 +82,9 @@ object f_input_buku: Tf_input_buku
   object lbl_5: TLabel
     Left = 34
     Top = 238
-    Width = 108
+    Width = 92
     Height = 19
-    Caption = 'Tahun Penerbit'
+    Caption = 'Tahun Terbit'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -162,7 +162,7 @@ object f_input_buku: Tf_input_buku
     TabOrder = 5
     OnClick = btn_batalClick
   end
-  object edt_tahun_tebit: TEdit
+  object edt_tahun_terbit: TEdit
     Left = 180
     Top = 234
     Width = 300

@@ -20,7 +20,7 @@ type
     btn_simpan: TButton;
     btn_batal: TButton;
     lbl_5: TLabel;
-    edt_tahun_tebit: TEdit;
+    edt_tahun_terbit: TEdit;
     procedure btn_simpanClick(Sender: TObject);
     procedure btn_batalClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -54,7 +54,7 @@ begin
     FieldValues['judul'] := edt_judul.Text;
     FieldValues['penulis'] := edt_penulis.Text;
     FieldValues['penerbit'] := edt_penerbit.Text;
-    FieldValues['tahun_terbit'] := edt_tahun_tebit.Text;
+    FieldValues['tahun_terbit'] := edt_tahun_terbit.Text;
     Post;
     First;
   end;
@@ -68,7 +68,7 @@ begin
   edt_judul.Text := '';
   edt_penulis.Text := '';
   edt_penerbit.Text := '';
-  edt_tahun_tebit.Text := '';
+  edt_tahun_terbit.Text := '';
 
   lbl_judul.Caption := 'Form Input Buku';
   f_input_buku.Caption := 'Form Input Buku';

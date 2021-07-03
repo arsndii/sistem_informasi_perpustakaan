@@ -12,12 +12,12 @@ type
     grp1: TGroupBox;
     edt_cari: TEdit;
     lbl__1: TLabel;
-    btn_1: TButton;
+    btn_cetak_laporan: TButton;
     PopupMenu1: TPopupMenu;
     Hapus1: TMenuItem;
     procedure FormActivate(Sender: TObject);
     procedure Hapus1Click(Sender: TObject);
-    procedure btn_1Click(Sender: TObject);
+    procedure btn_cetak_laporanClick(Sender: TObject);
     procedure edt_cariChange(Sender: TObject);
   private
     { Private declarations }
@@ -66,7 +66,7 @@ begin
     ShowMessage('Data berhasil dihapus.');
 end;
 
-procedure Tf_riwayat_peminjaman.btn_1Click(Sender: TObject);
+procedure Tf_riwayat_peminjaman.btn_cetak_laporanClick(Sender: TObject);
 begin
   f_laporan_riwayat_peminjaman.QuickRep1.preview;
 end;

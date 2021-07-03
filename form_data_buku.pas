@@ -12,13 +12,13 @@ type
     grp1: TGroupBox;
     edt_cari: TEdit;
     lbl__1: TLabel;
-    btn_1: TButton;
-    btn_2: TButton;
+    btn_input_buku: TButton;
+    btn_cetak_laporan: TButton;
     PopupMenu1: TPopupMenu;
     Edit1: TMenuItem;
     Hapus1: TMenuItem;
-    procedure btn_1Click(Sender: TObject);
-    procedure btn_2Click(Sender: TObject);
+    procedure btn_input_bukuClick(Sender: TObject);
+    procedure btn_cetak_laporanClick(Sender: TObject);
     procedure Edit1Click(Sender: TObject);
     procedure Hapus1Click(Sender: TObject);
     procedure edt_cariChange(Sender: TObject);
@@ -38,19 +38,19 @@ uses
 
 {$R *.dfm}
 
-procedure Tf_data_buku.btn_1Click(Sender: TObject);
+procedure Tf_data_buku.btn_input_bukuClick(Sender: TObject);
 begin
   f_input_buku.showmodal;
 end;
 
-procedure Tf_data_buku.btn_2Click(Sender: TObject);
+procedure Tf_data_buku.btn_cetak_laporanClick(Sender: TObject);
 begin
   f_laporan_buku.QuickRep1.preview;
 end;
 
 procedure Tf_data_buku.Edit1Click(Sender: TObject);
 begin
-with f_input_buku do
+  with f_input_buku do
   begin
     lbl_judul.Caption := 'Form Edit Buku';
     f_input_buku.Caption := 'Form Edit Buku';
@@ -59,9 +59,8 @@ with f_input_buku do
     edt_judul.Text := dg_buku.Fields[1].Value;
     edt_penulis.Text := dg_buku.Fields[2].Value;
     edt_penerbit.Text := dg_buku.Fields[3].Value;
-    edt_tahun_tebit.Text := dg_buku.Fields[4].Value;
+    edt_tahun_terbit.Text := dg_buku.Fields[4].Value;
 
-    edt_id_buku.ReadOnly := True;
     ShowModal;
   end;
 end;

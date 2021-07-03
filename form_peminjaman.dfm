@@ -1,7 +1,7 @@
 object f_peminjaman: Tf_peminjaman
   Left = 547
   Top = 373
-  Width = 882
+  Width = 777
   Height = 486
   Caption = 'Dashboard'
   Color = clBtnFace
@@ -12,7 +12,6 @@ object f_peminjaman: Tf_peminjaman
   Font.Style = []
   Menu = mm1
   OldCreateOrder = False
-  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object l_1: TLabel
@@ -31,7 +30,7 @@ object f_peminjaman: Tf_peminjaman
   object dg_peminjaman: TDBGrid
     Left = 16
     Top = 72
-    Width = 833
+    Width = 729
     Height = 337
     DataSource = dm1.ds_peminjaman
     PopupMenu = PopupMenu1
@@ -84,19 +83,10 @@ object f_peminjaman: Tf_peminjaman
         Title.Caption = 'Batas Waktu'
         Width = 90
         Visible = True
-      end
-      item
-        Alignment = taCenter
-        Expanded = False
-        FieldName = 'tanggal_kembali'
-        Title.Alignment = taCenter
-        Title.Caption = 'Tanggal Kembali'
-        Width = 100
-        Visible = True
       end>
   end
   object grp1: TGroupBox
-    Left = 648
+    Left = 544
     Top = 16
     Width = 201
     Height = 49

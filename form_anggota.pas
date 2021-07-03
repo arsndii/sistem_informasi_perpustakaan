@@ -15,12 +15,12 @@ type
     PopupMenu1: TPopupMenu;
     Edit1: TMenuItem;
     Hapus1: TMenuItem;
-    btn_1: TButton;
-    btn_2: TButton;
-    procedure btn_1Click(Sender: TObject);
+    btn_input_anggota: TButton;
+    btn_cetak_laporan: TButton;
+    procedure btn_input_anggotaClick(Sender: TObject);
     procedure Edit1Click(Sender: TObject);
     procedure Hapus1Click(Sender: TObject);
-    procedure btn_2Click(Sender: TObject);
+    procedure btn_cetak_laporanClick(Sender: TObject);
     procedure edt_cariChange(Sender: TObject);
   private
     { Private declarations }
@@ -38,7 +38,7 @@ uses
 
 {$R *.dfm}
 
-procedure Tf_anggota.btn_1Click(Sender: TObject);
+procedure Tf_anggota.btn_input_anggotaClick(Sender: TObject);
 begin
   f_input_anggota.showmodal;
 end;
@@ -55,7 +55,6 @@ with f_input_anggota do
     edt_alamat.Text := dg_anggota.Fields[2].Value;
     edt_no_telp.Text := dg_anggota.Fields[3].Value;
 
-    edt_id_anggota.ReadOnly := True;
     ShowModal;
   end;
 end;
@@ -72,7 +71,7 @@ begin
     end;
 end;
 
-procedure Tf_anggota.btn_2Click(Sender: TObject);
+procedure Tf_anggota.btn_cetak_laporanClick(Sender: TObject);
 begin
   f_laporan_anggota.QuickRep1.preview;
 end;

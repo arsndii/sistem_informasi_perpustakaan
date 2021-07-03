@@ -115,14 +115,14 @@ object f_riwayat_peminjaman: Tf_riwayat_peminjaman
       OnChange = edt_cariChange
     end
   end
-  object btn_1: TButton
+  object btn_cetak_laporan: TButton
     Left = 16
     Top = 40
     Width = 97
     Height = 25
     Caption = 'Cetak Laporan'
     TabOrder = 2
-    OnClick = btn_1Click
+    OnClick = btn_cetak_laporanClick
   end
   object PopupMenu1: TPopupMenu
     Left = 352

@@ -47,8 +47,8 @@ begin
         Append;
         FieldValues['id_anggota'] := edt_id_anggota.Text;
 
-        // Tanggal
-        DateSeparator := '-';
+        // Tanggal Daftar
+        DateSeparator := '/';
         ShortDateFormat := 'dd/mm/yyyy';
         FieldValues['tanggal_daftar'] := DateToStr(Date);
       end

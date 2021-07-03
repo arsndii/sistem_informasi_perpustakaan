@@ -25,7 +25,6 @@ type
     Pengembalian1: TMenuItem;
     N1: TMenuItem;
     Hapus1: TMenuItem;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Anggota1Click(Sender: TObject);
     procedure DataBuku1Click(Sender: TObject);
     procedure RiwayatPeminjaman1Click(Sender: TObject);
@@ -53,12 +52,6 @@ uses
   form_profile;
 
 {$R *.dfm}
-
-procedure Tf_peminjaman.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  Application.Terminate;
-end;
 
 procedure Tf_peminjaman.Anggota1Click(Sender: TObject);
 begin
@@ -90,10 +83,10 @@ begin
   with dm1.table_peminjaman do
   begin
     Edit;
-    // Tanggal
-    DateSeparator := '-';
+    DateSeparator := '/';
     ShortDateFormat := 'dd/mm/yyyy';
-    FieldValues['batas_waktu'] := DateToStr(StrToDate(dg_peminjaman.Fields[4].Value)+3); // Perpanjangan batas waktu selama 3 hari
+    // Perpanjangan batas waktu selama 3 hari
+    FieldValues['batas_waktu'] := DateToStr(StrToDate(dg_peminjaman.Fields[4].Value)+3);
     Post;
     First;
   end;
@@ -109,9 +102,9 @@ begin
     // Merubah status peminjaman menjadi selesai (Arsip)
     FieldValues['status'] := 'Arsip';
 
-    // Tanggal
-    DateSeparator := '-';
+    DateSeparator := '/';
     ShortDateFormat := 'dd/mm/yyyy';
+    // Tanggal Pengembalian
     FieldValues['tanggal_kembali'] := DateToStr(Date);
     Post;
     First;
@@ -131,6 +124,7 @@ begin
       begin
         Close;
         SQL.Clear;
+        // Menghapus data peminjaman menggunakan Query SQL        
         SQL.Text := 'DELETE FROM peminjaman WHERE no_pinjam = ' + IntToStr(dg_peminjaman.Fields[0].Value);
         ExecSQL;
       end;
@@ -148,18 +142,9 @@ procedure Tf_peminjaman.edt_cariChange(Sender: TObject);
 begin
   with dm1.table_peminjaman do
   begin
-    if (edt_cari.Text <> '') then
-    begin
-      Active := False;
-      CommandText := 'SELECT * FROM ((peminjaman INNER JOIN anggota ON peminjaman.id_anggota=anggota.id_anggota) INNER JOIN data_buku ON peminjaman.id_buku=data_buku.id_buku) WHERE status = "Diproses" AND no_pinjam LIKE "%'+edt_cari.Text+'%" OR nama LIKE "%'+edt_cari.Text+'%"';
-      Active := True;
-    end
-    else if (edt_cari.Text = '') then
-    begin
-      Active := False;
-      CommandText := 'SELECT * FROM ((peminjaman INNER JOIN anggota ON peminjaman.id_anggota=anggota.id_anggota) INNER JOIN data_buku ON peminjaman.id_buku=data_buku.id_buku) WHERE status = "Diproses"';
-      Active := True;
-    end;
+    Active := False;
+    CommandText := 'SELECT * FROM peminjaman INNER JOIN anggota ON peminjaman.id_anggota=anggota.id_anggota WHERE status = "Diproses" AND no_pinjam LIKE "%'+edt_cari.Text+'%" OR nama LIKE "%'+edt_cari.Text+'%"';
+    Active := True;
   end;
 end;
 

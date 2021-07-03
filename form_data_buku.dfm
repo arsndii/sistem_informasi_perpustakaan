@@ -105,23 +105,23 @@ object f_data_buku: Tf_data_buku
       OnChange = edt_cariChange
     end
   end
-  object btn_1: TButton
+  object btn_input_buku: TButton
     Left = 16
     Top = 40
     Width = 97
     Height = 25
     Caption = 'Input Buku'
     TabOrder = 2
-    OnClick = btn_1Click
+    OnClick = btn_input_bukuClick
   end
-  object btn_2: TButton
+  object btn_cetak_laporan: TButton
     Left = 120
     Top = 40
     Width = 97
     Height = 25
     Caption = 'Cetak Laporan'
     TabOrder = 3
-    OnClick = btn_2Click
+    OnClick = btn_cetak_laporanClick
   end
   object PopupMenu1: TPopupMenu
     Left = 320

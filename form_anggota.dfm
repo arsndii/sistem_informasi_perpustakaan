@@ -106,23 +106,23 @@ object f_anggota: Tf_anggota
       OnChange = edt_cariChange
     end
   end
-  object btn_1: TButton
+  object btn_input_anggota: TButton
     Left = 16
     Top = 40
     Width = 97
     Height = 25
     Caption = 'Input Anggota'
     TabOrder = 2
-    OnClick = btn_1Click
+    OnClick = btn_input_anggotaClick
   end
-  object btn_2: TButton
+  object btn_cetak_laporan: TButton
     Left = 120
     Top = 40
     Width = 97
     Height = 25
     Caption = 'Cetak Laporan'
     TabOrder = 3
-    OnClick = btn_2Click
+    OnClick = btn_cetak_laporanClick
   end
   object PopupMenu1: TPopupMenu
     Left = 368

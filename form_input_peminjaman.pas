@@ -48,23 +48,23 @@ var
   kodeTerbesar : Integer;
 begin
   if lbl_judul.Caption = 'Form Input Peminjaman' then
+  begin
+    with dm1.Query do
     begin
-      with dm1.Query do
+      Close;
+      SQL.Clear;
+      SQL.Add('SELECT max(no_pinjam) as kodeTerbesar FROM peminjaman'); // Mencari no_pinjam tertinggi
+      Prepared;
+      if Prepared = true then
       begin
-        Close;
-        SQL.Clear;
-        SQL.Add('SELECT max(no_pinjam) as kodeTerbesar FROM peminjaman'); // Mencari no_pinjam tertinggi
-        Prepared;
-        if Prepared = true then
-        begin
-          Open;
-          kodeTerbesar := fieldbyname('kodeTerbesar').AsInteger
-        end;
+        Open;
+        kodeTerbesar := fieldbyname('kodeTerbesar').AsInteger
       end;
-      kodeTerbesar := kodeTerbesar + 1; // Menambahkan 1 pada kodeTertinggi
-      edt_no_pinjam.Text := IntToStr(kodeTerbesar);
-      edt_no_pinjam.ReadOnly := True;
     end;
+    kodeTerbesar := kodeTerbesar + 1; // Menambahkan 1 pada kodeTertinggi
+    edt_no_pinjam.Text := IntToStr(kodeTerbesar);
+    edt_no_pinjam.ReadOnly := True;
+  end;
 
   // ComboBox ID Anggota
   with dm1.Query do
@@ -114,7 +114,7 @@ begin
     FieldValues['no_pinjam'] := edt_no_pinjam.Text;
 
     // Tanggal
-    DateSeparator := '-';
+    DateSeparator := '/';
     ShortDateFormat := 'dd/mm/yyyy';
     FieldValues['tanggal_pinjam'] := DateToStr(Date);
     FieldValues['batas_waktu'] := DateToStr(Date+7); // Batas peminjaman 7 hari
@@ -129,7 +129,6 @@ begin
     Active := False;
     Active := True;
   end;
-
   btn_batalClick(Sender);
   f_input_peminjaman.close;
 end;
@@ -148,7 +147,8 @@ begin
   begin
     Close;
     SQL.Clear;
-    SQL.Add('SELECT * FROM anggota WHERE id_anggota = "'+ cb_id_anggota.Text +'" '); // Mencari nama anggota berdasarkan id_anggota
+    // Mencari nama anggota berdasarkan id_anggota
+    SQL.Add('SELECT * FROM anggota WHERE id_anggota = "'+ cb_id_anggota.Text +'" ');
     Prepared;
     if Prepared = true then
     begin
@@ -164,7 +164,8 @@ begin
   begin
     Close;
     SQL.Clear;
-    SQL.Add('SELECT judul FROM data_buku WHERE id_buku = "'+cb_id_buku.Text+'" '); // Mencari judul buku berdasarkan id_buku
+    // Mencari judul buku berdasarkan id_buku
+    SQL.Add('SELECT judul FROM data_buku WHERE id_buku = "'+cb_id_buku.Text+'" ');
     Prepared;
     if Prepared = true then
     begin
