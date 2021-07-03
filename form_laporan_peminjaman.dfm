@@ -1,8 +1,8 @@
 object F_laporan_peminjaman: TF_laporan_peminjaman
-  Left = 773
-  Top = 342
+  Left = 546
+  Top = 250
   Width = 1107
-  Height = 675
+  Height = 508
   Caption = 'Laporan Peminjaman'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET

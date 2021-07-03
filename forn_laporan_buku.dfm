@@ -2,7 +2,7 @@ object f_laporan_buku: Tf_laporan_buku
   Left = 321
   Top = 187
   Width = 1115
-  Height = 467
+  Height = 549
   Caption = 'Form Laporan Data Buku'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET

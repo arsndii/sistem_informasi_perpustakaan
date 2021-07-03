@@ -1,8 +1,8 @@
 object f_laporan_anggota: Tf_laporan_anggota
-  Left = 831
-  Top = 366
-  Width = 1090
-  Height = 874
+  Left = 554
+  Top = 171
+  Width = 1108
+  Height = 525
   Caption = 'Laporan Anggota'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET

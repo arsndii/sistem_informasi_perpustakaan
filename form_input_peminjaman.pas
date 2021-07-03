@@ -53,7 +53,7 @@ begin
       begin
         Close;
         SQL.Clear;
-        SQL.Add('SELECT max(no_pinjam) as kodeTerbesar FROM peminjaman'); // Mencari id_anggota tertinggi
+        SQL.Add('SELECT max(no_pinjam) as kodeTerbesar FROM peminjaman'); // Mencari no_pinjam tertinggi
         Prepared;
         if Prepared = true then
         begin
@@ -71,7 +71,7 @@ begin
   begin
     Close;
     SQL.Clear;
-    SQL.Add('SELECT id_anggota FROM anggota'); // Mencari id_anggota tertinggi
+    SQL.Add('SELECT id_anggota FROM anggota');
     Prepared;
     if Prepared = true then
     begin
@@ -90,7 +90,7 @@ begin
   begin
     Close;
     SQL.Clear;
-    SQL.Add('SELECT id_buku FROM data_buku'); // Mencari id_anggota tertinggi
+    SQL.Add('SELECT id_buku FROM data_buku');
     Prepared;
     if Prepared = true then
     begin

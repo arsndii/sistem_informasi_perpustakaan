@@ -40,7 +40,7 @@ begin
     login.First;
     while not login.Eof do
     begin
-//    // Login Admin
+      // Login Level Admin
       if (edt_username.Text = login['username']) and (edt_password.Text = login['password']) and (login['level'] = 'admin') then
       begin
         f_peminjaman.Show;
@@ -49,7 +49,7 @@ begin
         f_login.Hide;
         exit;
       end;
-      // Login Administrator
+      // Login Level Administrator
       login.Next;
       if (edt_username.Text = login['username']) and (edt_password.Text = login['password']) and (login['level'] = 'administrator') then
       begin
