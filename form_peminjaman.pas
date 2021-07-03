@@ -142,9 +142,18 @@ procedure Tf_peminjaman.edt_cariChange(Sender: TObject);
 begin
   with dm1.table_peminjaman do
   begin
-    Active := False;
-    CommandText := 'SELECT * FROM peminjaman INNER JOIN anggota ON peminjaman.id_anggota=anggota.id_anggota WHERE status = "Diproses" AND no_pinjam LIKE "%'+edt_cari.Text+'%" OR nama LIKE "%'+edt_cari.Text+'%"';
-    Active := True;
+    if (edt_cari.Text <> '') then
+    begin
+      Active := False;
+      CommandText := 'SELECT * FROM ((peminjaman INNER JOIN anggota ON peminjaman.id_anggota=anggota.id_anggota) INNER JOIN data_buku ON peminjaman.id_buku=data_buku.id_buku) WHERE status = "Diproses" AND no_pinjam LIKE "%'+edt_cari.Text+'%" OR status = "Diproses" AND nama LIKE "%'+edt_cari.Text+'%"';
+      Active := True;
+    end
+    else if (edt_cari.Text = '') then
+    begin
+      Active := False;
+      CommandText := 'SELECT * FROM ((peminjaman INNER JOIN anggota ON peminjaman.id_anggota=anggota.id_anggota) INNER JOIN data_buku ON peminjaman.id_buku=data_buku.id_buku) WHERE status = "Diproses"';
+      Active := True;
+    end;
   end;
 end;
 
