@@ -16,15 +16,6 @@ object dm1: Tdm1
     Left = 24
     Top = 24
   end
-  object table_user: TADODataSet
-    Active = True
-    Connection = koneksi
-    CursorType = ctStatic
-    CommandText = 'select * from user_list'
-    Parameters = <>
-    Left = 136
-    Top = 216
-  end
   object table_data_buku: TADODataSet
     Active = True
     Connection = koneksi
@@ -70,11 +61,6 @@ object dm1: Tdm1
     Left = 272
     Top = 152
   end
-  object ds_user: TDataSource
-    DataSet = table_user
-    Left = 272
-    Top = 216
-  end
   object table_riwayat_peminjaman: TADODataSet
     Active = True
     Connection = koneksi
@@ -85,20 +71,12 @@ object dm1: Tdm1
       '.id_buku=data_buku.id_buku)'#13#10'WHERE peminjaman.status = '#39'Arsip'#39
     Parameters = <>
     Left = 136
-    Top = 280
+    Top = 216
   end
   object ds_riwayat_peminjaman: TDataSource
     DataSet = table_riwayat_peminjaman
     Left = 272
-    Top = 280
-  end
-  object login: TADOTable
-    Active = True
-    Connection = koneksi
-    CursorType = ctStatic
-    TableName = 'user_list'
-    Left = 24
-    Top = 104
+    Top = 216
   end
   object Query: TADOQuery
     Active = True
@@ -107,8 +85,8 @@ object dm1: Tdm1
     Parameters = <>
     Prepared = True
     SQL.Strings = (
-      'SELECT * FROM anggota')
-    Left = 32
-    Top = 184
+      'SELECT * FROM peminjaman')
+    Left = 24
+    Top = 88
   end
 end

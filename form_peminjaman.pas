@@ -26,7 +26,6 @@ type
     N1: TMenuItem;
     Hapus1: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure Logout1Click(Sender: TObject);
     procedure Anggota1Click(Sender: TObject);
     procedure DataBuku1Click(Sender: TObject);
     procedure RiwayatPeminjaman1Click(Sender: TObject);
@@ -36,6 +35,7 @@ type
     procedure Pengembalian1Click(Sender: TObject);
     procedure Hapus1Click(Sender: TObject);
     procedure edt_cariChange(Sender: TObject);
+    procedure Logout1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -48,8 +48,9 @@ var
 implementation
 
 uses
-  datamodule, form_login, form_anggota, form_data_buku,
-  form_riwayat_peminjaman, form_input_peminjaman, form_laporan_peminjaman;
+  datamodule, form_anggota, form_data_buku,
+  form_riwayat_peminjaman, form_input_peminjaman, form_laporan_peminjaman,
+  form_profile;
 
 {$R *.dfm}
 
@@ -57,12 +58,6 @@ procedure Tf_peminjaman.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   Application.Terminate;
-end;
-
-procedure Tf_peminjaman.Logout1Click(Sender: TObject);
-begin
-  f_peminjaman.Hide;
-  f_login.Show;
 end;
 
 procedure Tf_peminjaman.Anggota1Click(Sender: TObject);
@@ -166,6 +161,11 @@ begin
       Active := True;
     end;
   end;
+end;
+
+procedure Tf_peminjaman.Logout1Click(Sender: TObject);
+begin
+  f_profile.showmodal;
 end;
 
 end.

@@ -154,7 +154,7 @@ object f_peminjaman: Tf_peminjaman
       end
     end
     object Logout1: TMenuItem
-      Caption = 'Logout'
+      Caption = 'Profile'
       OnClick = Logout1Click
     end
   end

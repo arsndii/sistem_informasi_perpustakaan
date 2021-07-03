@@ -34,7 +34,7 @@ var
 implementation
 
 uses
-  datamodule, form_input_user;
+  datamodule;
 
 {$R *.dfm}
 
