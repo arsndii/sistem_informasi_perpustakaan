@@ -7,16 +7,15 @@ object dm1: Tdm1
   object koneksi: TADOConnection
     Connected = True
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=D:\De' +
-      'lphi Project\sistem_informasi_perpustakaan\database\db_si_perpus' +
-      'takaan.mdb;Mode=Share Deny None;Persist Security Info=False;Jet ' +
-      'OLEDB:System database="";Jet OLEDB:Registry Path="";Jet OLEDB:Da' +
-      'tabase Password="";Jet OLEDB:Engine Type=5;Jet OLEDB:Database Lo' +
-      'cking Mode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLEDB:Globa' +
-      'l Bulk Transactions=1;Jet OLEDB:New Database Password="";Jet OLE' +
-      'DB:Create System Database=False;Jet OLEDB:Encrypt Database=False' +
-      ';Jet OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:Compact ' +
-      'Without Replica Repair=False;Jet OLEDB:SFP=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=datab' +
+      'ase\db_si_perpustakaan.mdb;Mode=Share Deny None;Persist Security' +
+      ' Info=False;Jet OLEDB:System database="";Jet OLEDB:Registry Path' +
+      '="";Jet OLEDB:Database Password="";Jet OLEDB:Engine Type=5;Jet O' +
+      'LEDB:Database Locking Mode=1;Jet OLEDB:Global Partial Bulk Ops=2' +
+      ';Jet OLEDB:Global Bulk Transactions=1;Jet OLEDB:New Database Pas' +
+      'sword="";Jet OLEDB:Create System Database=False;Jet OLEDB:Encryp' +
+      't Database=False;Jet OLEDB:Don'#39't Copy Locale on Compact=False;Je' +
+      't OLEDB:Compact Without Replica Repair=False;Jet OLEDB:SFP=False'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
@@ -86,7 +85,6 @@ object dm1: Tdm1
     Top = 216
   end
   object Query: TADOQuery
-    Active = True
     Connection = koneksi
     CursorType = ctStatic
     Parameters = <>
